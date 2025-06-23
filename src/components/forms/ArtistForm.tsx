@@ -4,6 +4,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import CategoriesDropdown from "@/components/forms/CategoriesDropdown";
 
 const categories = ["Singer", "Dancer", "DJ", "Speaker"];
@@ -15,13 +20,22 @@ const feeRanges = [
   "₹2L+",
 ];
 
-const schema = Yup.object().shape({
+const schema: Yup.ObjectSchema<FormValues> = Yup.object({
   name: Yup.string().required("Name is required"),
   bio: Yup.string().required("Bio is required"),
   location: Yup.string().required("Location is required"),
   fee: Yup.string().required("Fee range is required"),
-  categories: Yup.array().min(1, "At least one category is required"),
-  languages: Yup.array().min(1, "Select at least one language"),
+  categories: Yup.array()
+    .of(Yup.string().required())
+    .min(1, "At least one category is required")
+    .required()
+    .defined(),
+  languages: Yup.array()
+    .of(Yup.string().required())
+    .min(1, "Select at least one language")
+    .required()
+    .defined(),
+  image: Yup.mixed<FileList>().notRequired(),
 });
 
 type FormValues = {
@@ -76,9 +90,7 @@ export default function ArtistForm() {
         "https://jsonplaceholder.typicode.com/posts",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         }
       );
@@ -112,38 +124,34 @@ export default function ArtistForm() {
     >
       {/* Name */}
       <div>
-        <label className="font-medium">Name</label>
-        <input
-          {...register("name")}
-          className="w-full mt-1 border rounded px-3 py-2"
-        />
-        <p className="text-red-500 text-sm">{errors.name?.message}</p>
+        <Label>Name</Label>
+        <Input {...register("name")} />
+        {errors.name && (
+          <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+        )}
       </div>
 
       {/* Bio */}
       <div>
-        <label className="font-medium">Bio</label>
-        <textarea
-          {...register("bio")}
-          rows={4}
-          className="w-full mt-1 border rounded px-3 py-2"
-        />
-        <p className="text-red-500 text-sm">{errors.bio?.message}</p>
+        <Label>Bio</Label>
+        <Textarea {...register("bio")} rows={4} />
+        {errors.bio && (
+          <p className="text-red-500 text-sm mt-1">{errors.bio.message}</p>
+        )}
       </div>
 
       {/* Location */}
       <div>
-        <label className="font-medium">Location</label>
-        <input
-          {...register("location")}
-          className="w-full mt-1 border rounded px-3 py-2"
-        />
-        <p className="text-red-500 text-sm">{errors.location?.message}</p>
+        <Label>Location</Label>
+        <Input {...register("location")} />
+        {errors.location && (
+          <p className="text-red-500 text-sm mt-1">{errors.location.message}</p>
+        )}
       </div>
 
       {/* Fee Range */}
       <div>
-        <label className="font-medium">Fee Range</label>
+        <Label>Fee Range</Label>
         <select
           {...register("fee")}
           className="w-full mt-1 border rounded px-3 py-2"
@@ -155,7 +163,9 @@ export default function ArtistForm() {
             </option>
           ))}
         </select>
-        <p className="text-red-500 text-sm">{errors.fee?.message}</p>
+        {errors.fee && (
+          <p className="text-red-500 text-sm mt-1">{errors.fee.message}</p>
+        )}
       </div>
 
       {/* Category Dropdown */}
@@ -169,43 +179,40 @@ export default function ArtistForm() {
         />
       </div>
 
-      {/* Languages Checkboxes */}
+      {/* Languages */}
       <div>
-        <label className="font-medium">Languages Spoken</label>
+        <Label>Languages Spoken</Label>
         <div className="grid grid-cols-2 gap-2 mt-2">
           {languages.map((lang) => (
-            <label key={lang} className="flex items-center gap-2">
-              <input
-                type="checkbox"
+            <label key={lang} className="flex items-center space-x-2">
+              <Checkbox
                 checked={selectedLanguages.includes(lang)}
-                onChange={() => toggleLanguage(lang)}
+                onCheckedChange={() => toggleLanguage(lang)}
               />
-              {lang}
+              <span>{lang}</span>
             </label>
           ))}
         </div>
-        <p className="text-red-500 text-sm">{errors.languages?.message}</p>
+        {errors.languages && (
+          <p className="text-red-500 text-sm mt-1">
+            {errors.languages.message}
+          </p>
+        )}
       </div>
 
       {/* Image Upload */}
       <div>
-        <label className="font-medium">Profile Image (Optional)</label>
-        <input type="file" {...register("image")} className="mt-1" />
+        <Label>Profile Image (Optional)</Label>
+        <Input type="file" {...register("image")} />
       </div>
 
       {/* Submit Button */}
       <div className="flex justify-center">
-        <button
-          type="submit"
-          className="bg-black text-white px-8 py-2 rounded hover:bg-gray-800 transition cursor-pointer mt-3"
-        >
-          Submit
-        </button>
+        <Button type="submit">Submit</Button>
       </div>
 
-      {/* Success Message */}
       {submitted && (
-        <p className="text-green-600 mt-4">
+        <p className="text-green-600 mt-4 text-center">
           🎉 Form submitted successfully (mock API)
         </p>
       )}
