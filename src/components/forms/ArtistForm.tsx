@@ -207,7 +207,9 @@ export default function ArtistForm() {
       </div>
 
       <div className="flex justify-center">
-        <Button type="submit">Submit</Button>
+        <Button className="cursor-pointer" type="submit">
+          Submit
+        </Button>
       </div>
 
       {submitted && (
