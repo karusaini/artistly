@@ -128,7 +128,7 @@ export default function ArtistForm() {
       className="bg-background p-6 rounded-2xl shadow-lg border max-w-2xl mx-auto space-y-6"
     >
       <div>
-        <Label>Name</Label>
+        <Label className="mb-2 block">Name</Label>
         <Input {...register("name")} />
         {errors.name && (
           <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
@@ -136,7 +136,7 @@ export default function ArtistForm() {
       </div>
 
       <div>
-        <Label>Bio</Label>
+        <Label className="mb-2 block">Bio</Label>
         <Textarea {...register("bio")} rows={4} />
         {errors.bio && (
           <p className="text-red-500 text-sm mt-1">{errors.bio.message}</p>
@@ -144,7 +144,7 @@ export default function ArtistForm() {
       </div>
 
       <div>
-        <Label>Location</Label>
+        <Label className="mb-2 block">Location</Label>
         <Input {...register("location")} />
         {errors.location && (
           <p className="text-red-500 text-sm mt-1">{errors.location.message}</p>
@@ -152,7 +152,7 @@ export default function ArtistForm() {
       </div>
 
       <div>
-        <Label>Fee Range</Label>
+        <Label className="mb-2 block">Fee Range</Label>
         <Select onValueChange={(val) => setValue("fee", val)} defaultValue="">
           <SelectTrigger className="mt-1">
             <SelectValue placeholder="Select Fee Range" />
@@ -181,7 +181,7 @@ export default function ArtistForm() {
       </div>
 
       <div>
-        <Label>Languages Spoken</Label>
+        <Label className="mb-4 block">Languages Spoken</Label>
         <div className="grid grid-cols-2 gap-2 mt-2">
           {languages.map((lang) => (
             <div key={lang} className="flex items-center space-x-2">
@@ -202,12 +202,12 @@ export default function ArtistForm() {
       </div>
 
       <div>
-        <Label>Profile Image (Optional)</Label>
+        <Label className="mb-2 block">Profile Image (Optional)</Label>
         <Input type="file" {...register("image")} />
       </div>
 
       <div className="flex justify-center">
-        <Button className="cursor-pointer" type="submit">
+        <Button className="cursor-pointer hover:bg-gray-700" type="submit">
           Submit
         </Button>
       </div>

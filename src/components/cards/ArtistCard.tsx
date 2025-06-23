@@ -17,7 +17,9 @@ export default function ArtistCard({ name, category, location, fee }: Props) {
           {category} • {location}
         </p>
         <p className="mt-2 font-medium">{fee}</p>
-        <Button className="mt-6 cursor-pointer ">Ask for Quote</Button>
+        <Button className="mt-6 cursor-pointer hover:bg-gray-700 ">
+          Ask for Quote
+        </Button>
       </CardContent>
     </Card>
   );

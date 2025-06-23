@@ -21,7 +21,7 @@ export default function HomePage() {
           </p>
           <Button
             asChild
-            className="mt-10 text-lg px-8 py-6 rounded-full"
+            className="mt-10 text-lg px-8 py-6 rounded-full hover:bg-gray-700"
             variant="default"
           >
             <a href="/artists">Explore Artists</a>
