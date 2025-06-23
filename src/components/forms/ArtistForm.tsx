@@ -28,13 +28,11 @@ const schema: Yup.ObjectSchema<FormValues> = Yup.object({
   categories: Yup.array()
     .of(Yup.string().required())
     .min(1, "At least one category is required")
-    .required()
-    .defined(),
+    .required(),
   languages: Yup.array()
     .of(Yup.string().required())
     .min(1, "Select at least one language")
-    .required()
-    .defined(),
+    .required(),
   image: Yup.mixed<FileList>().notRequired(),
 });
 
@@ -45,7 +43,7 @@ type FormValues = {
   fee: string;
   categories: string[];
   languages: string[];
-  image?: FileList;
+  image?: FileList | null;
 };
 
 export default function ArtistForm() {
