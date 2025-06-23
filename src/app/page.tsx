@@ -12,8 +12,7 @@ export default function HomePage() {
       <Navbar />
 
       <main className="min-h-screen bg-background text-foreground">
-        {/* Hero Section */}
-        <section className="text-center py-24 px-4 md:px-10 mt-12">
+        <section className="text-center py-24 px-4 md:px-10 mt-20">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
             Book the Stars of Your Event
           </h1>
@@ -31,7 +30,6 @@ export default function HomePage() {
 
         <Separator className="my-12 max-w-4xl mx-auto" />
 
-        {/* Categories Section */}
         <section className="py-16 px-4 md:px-16">
           <h2 className="text-3xl font-bold mb-10 text-center">
             Browse by Category

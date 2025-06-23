@@ -127,7 +127,6 @@ export default function ArtistForm() {
       onSubmit={handleSubmit(onSubmit)}
       className="bg-background p-6 rounded-2xl shadow-lg border max-w-2xl mx-auto space-y-6"
     >
-      {/* Name */}
       <div>
         <Label>Name</Label>
         <Input {...register("name")} />
@@ -136,7 +135,6 @@ export default function ArtistForm() {
         )}
       </div>
 
-      {/* Bio */}
       <div>
         <Label>Bio</Label>
         <Textarea {...register("bio")} rows={4} />
@@ -145,7 +143,6 @@ export default function ArtistForm() {
         )}
       </div>
 
-      {/* Location */}
       <div>
         <Label>Location</Label>
         <Input {...register("location")} />
@@ -154,7 +151,6 @@ export default function ArtistForm() {
         )}
       </div>
 
-      {/* Fee Range */}
       <div>
         <Label>Fee Range</Label>
         <Select onValueChange={(val) => setValue("fee", val)} defaultValue="">
@@ -174,7 +170,6 @@ export default function ArtistForm() {
         )}
       </div>
 
-      {/* Categories */}
       <div>
         <CategoriesDropdown
           label="Categories"
@@ -185,7 +180,6 @@ export default function ArtistForm() {
         />
       </div>
 
-      {/* Languages */}
       <div>
         <Label>Languages Spoken</Label>
         <div className="grid grid-cols-2 gap-2 mt-2">
@@ -207,13 +201,11 @@ export default function ArtistForm() {
         )}
       </div>
 
-      {/* Image Upload */}
       <div>
         <Label>Profile Image (Optional)</Label>
         <Input type="file" {...register("image")} />
       </div>
 
-      {/* Submit */}
       <div className="flex justify-center">
         <Button type="submit">Submit</Button>
       </div>

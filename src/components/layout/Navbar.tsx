@@ -31,7 +31,6 @@ export default function Navbar() {
           Artistly
         </Link>
 
-        {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 text-black font-medium">
           <Link href="/artists" className="hover:text-gray-600 transition">
             Explore Artists
@@ -44,7 +43,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-black"
@@ -53,7 +51,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu Links */}
       {menuOpen && (
         <div className="mt-4 md:hidden bg-white shadow-md rounded-lg py-4 px-6 text-black font-medium flex flex-col gap-4">
           <Link

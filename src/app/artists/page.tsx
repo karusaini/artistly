@@ -46,7 +46,6 @@ export default function ArtistsPage() {
           Explore Artists
         </h1>
 
-        {/* Filters */}
         <div className="flex flex-col md:flex-row md:items-end gap-4 mb-6">
           <FilterBlock
             label="Category"
@@ -74,7 +73,6 @@ export default function ArtistsPage() {
           </button>
         </div>
 
-        {/* Results */}
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center mt-12 text-gray-500">
             <Frown size={48} className="mb-4 animate-bounce" />
