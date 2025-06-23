@@ -9,6 +9,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import CategoriesDropdown from "@/components/forms/CategoriesDropdown";
 
 const categories = ["Singer", "Dancer", "DJ", "Speaker"];
@@ -19,6 +26,16 @@ const feeRanges = [
   "₹1L - ₹2L",
   "₹2L+",
 ];
+
+type FormValues = {
+  name: string;
+  bio: string;
+  location: string;
+  fee: string;
+  categories: string[];
+  languages: string[];
+  image?: FileList | null;
+};
 
 const schema: Yup.ObjectSchema<FormValues> = Yup.object({
   name: Yup.string().required("Name is required"),
@@ -35,16 +52,6 @@ const schema: Yup.ObjectSchema<FormValues> = Yup.object({
     .required(),
   image: Yup.mixed<FileList>().notRequired(),
 });
-
-type FormValues = {
-  name: string;
-  bio: string;
-  location: string;
-  fee: string;
-  categories: string[];
-  languages: string[];
-  image?: FileList | null;
-};
 
 export default function ArtistForm() {
   const {
@@ -118,7 +125,7 @@ export default function ArtistForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-white text-black p-6 rounded-lg shadow-md space-y-6 max-w-2xl mx-auto"
+      className="bg-background p-6 rounded-2xl shadow-lg border max-w-2xl mx-auto space-y-6"
     >
       {/* Name */}
       <div>
@@ -150,23 +157,24 @@ export default function ArtistForm() {
       {/* Fee Range */}
       <div>
         <Label>Fee Range</Label>
-        <select
-          {...register("fee")}
-          className="w-full mt-1 border rounded px-3 py-2"
-        >
-          <option value="">Select Fee Range</option>
-          {feeRanges.map((f) => (
-            <option key={f} value={f}>
-              {f}
-            </option>
-          ))}
-        </select>
+        <Select onValueChange={(val) => setValue("fee", val)} defaultValue="">
+          <SelectTrigger className="mt-1">
+            <SelectValue placeholder="Select Fee Range" />
+          </SelectTrigger>
+          <SelectContent>
+            {feeRanges.map((range) => (
+              <SelectItem key={range} value={range}>
+                {range}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
         {errors.fee && (
           <p className="text-red-500 text-sm mt-1">{errors.fee.message}</p>
         )}
       </div>
 
-      {/* Category Dropdown */}
+      {/* Categories */}
       <div>
         <CategoriesDropdown
           label="Categories"
@@ -182,13 +190,14 @@ export default function ArtistForm() {
         <Label>Languages Spoken</Label>
         <div className="grid grid-cols-2 gap-2 mt-2">
           {languages.map((lang) => (
-            <label key={lang} className="flex items-center space-x-2">
+            <div key={lang} className="flex items-center space-x-2">
               <Checkbox
+                id={lang}
                 checked={selectedLanguages.includes(lang)}
                 onCheckedChange={() => toggleLanguage(lang)}
               />
-              <span>{lang}</span>
-            </label>
+              <Label htmlFor={lang}>{lang}</Label>
+            </div>
           ))}
         </div>
         {errors.languages && (
@@ -204,7 +213,7 @@ export default function ArtistForm() {
         <Input type="file" {...register("image")} />
       </div>
 
-      {/* Submit Button */}
+      {/* Submit */}
       <div className="flex justify-center">
         <Button type="submit">Submit</Button>
       </div>

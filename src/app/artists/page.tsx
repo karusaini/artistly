@@ -68,7 +68,7 @@ export default function ArtistsPage() {
           />
           <button
             onClick={resetFilters}
-            className="border border-gray-300 text-gray-700 rounded px-4 py-2 hover:bg-gray-100 transition text-sm"
+            className="border border-gray-300 text-gray-700 rounded px-4 py-2 hover:bg-gray-100 transition text-sm cursor-pointer"
           >
             Clear Filters
           </button>
