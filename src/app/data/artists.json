@@ -1,0 +1,108 @@
+[
+  {
+    "id": 1,
+    "name": "Asha Melody",
+    "category": "Singer",
+    "location": "Mumbai",
+    "fee": "₹50,000 - ₹1,00,000"
+  },
+  {
+    "id": 2,
+    "name": "Rhythm Crew",
+    "category": "Dancer",
+    "location": "Delhi",
+    "fee": "₹30,000 - ₹60,000"
+  },
+  {
+    "id": 3,
+    "name": "DJ Blaze",
+    "category": "DJ",
+    "location": "Bangalore",
+    "fee": "₹40,000 - ₹80,000"
+  },
+  {
+    "id": 4,
+    "name": "Motivator Max",
+    "category": "Speaker",
+    "location": "Pune",
+    "fee": "₹75,000 - ₹1,50,000"
+  },
+  {
+    "id": 5,
+    "name": "Riya Sharma",
+    "category": "Singer",
+    "location": "Mumbai",
+    "fee": "₹50,000 - ₹1,00,000"
+  },
+  {
+    "id": 6,
+    "name": "Rahul Verma",
+    "category": "DJ",
+    "location": "Delhi",
+    "fee": "₹20,000 - ₹50,000"
+  },
+  {
+    "id": 7,
+    "name": "Meera Das",
+    "category": "Dancer",
+    "location": "Bangalore",
+    "fee": "₹1L - ₹2L"
+  },
+
+  {
+    "id": 8,
+    "name": "Aarav Kapoor",
+    "category": "Singer",
+    "location": "Mumbai",
+    "fee": "₹50,000 - ₹1,00,000"
+  },
+  {
+    "id": 9,
+    "name": "Nisha Rao",
+    "category": "Speaker",
+    "location": "Delhi",
+    "fee": "₹1L - ₹2L"
+  },
+  {
+    "id": 10,
+    "name": "Dev Mehta",
+    "category": "DJ",
+    "location": "Pune",
+    "fee": "₹20,000 - ₹50,000"
+  },
+  {
+    "id": 11,
+    "name": "Kavya Iyer",
+    "category": "Dancer",
+    "location": "Chennai",
+    "fee": "₹2L+"
+  },
+  {
+    "id": 12,
+    "name": "Rohan Malik",
+    "category": "Singer",
+    "location": "Hyderabad",
+    "fee": "₹1L - ₹2L"
+  },
+  {
+    "id": 13,
+    "name": "Simran Arora",
+    "category": "DJ",
+    "location": "Kolkata",
+    "fee": "₹50,000 - ₹1,00,000"
+  },
+  {
+    "id": 14,
+    "name": "Meera Das",
+    "category": "Dancer",
+    "location": "Bangalore",
+    "fee": "₹1L - ₹2L"
+  },
+  {
+    "id": 15,
+    "name": "Vikram Singh",
+    "category": "Speaker",
+    "location": "Ahmedabad",
+    "fee": "₹20,000 - ₹50,000"
+  }
+]
