@@ -30,11 +30,9 @@ export default function HomePage() {
 
         <Separator className="my-12 max-w-4xl mx-auto" />
 
-        <section className="py-16 px-4 md:px-16">
-          <h2 className="text-3xl font-bold mb-10 text-center">
-            Browse by Category
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+        <section className="py-16 px-4 md:px-16 max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-10">Browse by Category</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6 justify-center">
             <CategoryCard name="Singers" image="/images/singer.jpg" />
             <CategoryCard name="Dancers" image="/images/dancer.jpg" />
             <CategoryCard name="DJs" image="/images/dj.jpg" />
