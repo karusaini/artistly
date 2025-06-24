@@ -13,9 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StarConnect | Book Artists for Events",
-  description:
-    "Discover and book top Singers, DJs, Dancers, and Speakers for your events. Seamlessly manage artist submissions with our intuitive dashboard.",
+  title: "Book Artists for Your Event",
+  description: "Find and book top singers, DJs, dancers, and speakers easily.",
+  icons: {
+    icon: "/favicon.png", // or /favicon.png
+  },
 };
 export default function RootLayout({
   children,

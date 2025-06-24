@@ -154,7 +154,7 @@ export default function ArtistForm() {
       <div>
         <Label className="mb-2 block">Fee Range</Label>
         <Select onValueChange={(val) => setValue("fee", val)} defaultValue="">
-          <SelectTrigger className="mt-1">
+          <SelectTrigger className="mt-1 cursor-pointer">
             <SelectValue placeholder="Select Fee Range" />
           </SelectTrigger>
           <SelectContent>
