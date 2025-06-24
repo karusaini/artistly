@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Book Artists for Your Event",
   description: "Find and book top singers, DJs, dancers, and speakers easily.",
   icons: {
-    icon: "/favicon.png", // or /favicon.png
+    icon: "/favicon.png",
   },
 };
 export default function RootLayout({
